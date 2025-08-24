@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Index format="1.0">
+  <Source>
+    <Name>Tarot Weaver</Name>
+    <Abbreviation>TW</Abbreviation>
+    <Version>1.0</Version>
+    <Author>Homebrew</Author>
+    <Url>https://orcaxii.github.io/FW/Tarot_Weaver_AuroraBuilder.xml</Url>
+    <Files>
+      <File>https://orcaxii.github.io/FW/Tarot_Weaver_AuroraBuilder.xml</File>
+    </Files>
+  </Source>
+</Index>
