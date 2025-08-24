@@ -1,15 +1,13 @@
 {
   "format": "index-1.0",
-  "sources": [
+  "sources":[
     {
-      "name": "Tarot Weaver",
-      "abbreviation": "TW",
-      "version": "1.0",
-      "author": "Homebrew",
-      "url": "https://raw.githubusercontent.com/OrcaXII/FW/main/Tarot_Weaver_AuroraBuilder.xml",
-      "files": [
-        "https://raw.githubusercontent.com/OrcaXII/FW/main/Tarot_Weaver_AuroraBuilder.xml"
-      ]
+      "name":"Tarot Weaver",
+      "abbreviation":"TW",
+      "version":"1.0",
+      "author":"Homebrew",
+      "url":"https://orcaxii.github.io/FW/Tarot_Weaver_AuroraBuilder.xml",
+      "files":["https://orcaxii.github.io/FW/Tarot_Weaver_AuroraBuilder.xml"]
     }
   ]
 }
