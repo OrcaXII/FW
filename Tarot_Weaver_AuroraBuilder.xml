@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Class>
+  <Name>Tarot Weaver</Name>
+  <Abbreviation>TW</Abbreviation>
+  <Author>Homebrew</Author>
+  <Version>1.0</Version>
+  <Description>Tarot-based class with Major Arcana, Minor Arcana, and Summons.</Description>
+
+  <!-- Major Arcana -->
+  <Cards type="Major">
+    <Card>
+      <Name>The Fool</Name>
+      <Effect>Leap of Faith - Teleport unpredictably, gaining invulnerability for 1 turn.</Effect>
+      <Meta>Teleport randomly within 5*AM feet</Meta>
+    </Card>
+    <Card>
+      <Name>The Magician</Name>
+      <Effect>Channel Arcana - Amplify the effect of your next spell.</Effect>
+      <Meta>Amplify spell damage or heal with AM. Flip card</Meta>
+    </Card>
+    <Card>
+      <Name>The High Priestess</Name>
+      <Effect>Veil of Mystery - Become invisible/shielded by illusions.</Effect>
+      <Meta>Illusions hide you for 1 turn. 1 extra turn per 5 levels. Flip if found</Meta>
+    </Card>
+    <Card>
+      <Name>The Empress</Name>
+      <Effect>Bountiful Growth - Heal allies.</Effect>
+      <Meta>Heal 1d8 + AM</Meta>
+    </Card>
+    <Card>
+      <Name>The Emperor</Name>
+      <Effect>Authority's Command - Enforce order, immobilizing enemies.</Effect>
+      <Meta>Target must succeed DC 10 + intimidation or obey</Meta>
+    </Card>
+    <Card>
+      <Name>The Hierophant</Name>
+      <Effect>Sacred Rite - Call divine protection or inspire allies.</Effect>
+      <Meta>Give inspiration to an ally</Meta>
+    </Card>
+    <Card>
+      <Name>The Lovers</Name>
+      <Effect>Sacred Bond - Link two beings: share buffs and healing.</Effect>
+      <Meta>Any effect on one applies to the other</Meta>
+    </Card>
+    <Card>
+      <Name>The Chariot</Name>
+      <Effect>Victory's Charge - Surge forward with unstoppable force.</Effect>
+      <Meta>Dash 15 ft forward. 1d8+AM bludgeoning to hit. Flip if DC10+AM resisted</Meta>
+    </Card>
+    <Card>
+      <Name>Strength</Name>
+      <Effect>Lionheart - Temporary immense strength, immune to fear.</Effect>
+      <Meta>3 turns: fists 1d10+AM. Extra attacks allowed by discarding another card. Flip after duration.</Meta>
+    </Card>
+    <Card>
+      <Name>The Hermit</Name>
+      <Effect>Lamp of Wisdom - Reveal hidden truths, secrets, or enemies.</Effect>
+      <Meta>Reveal secrets/enemies within 15 ft. Flip if nothing found.</Meta>
+    </Card>
+    <Card>
+      <Name>Wheel of Fortune</Name>
+      <Effect>Turn the Wheel - Randomly shifts battlefield conditions in your favor.</Effect>
+      <Meta>Make rough terrain under/around 1d4 enemies</Meta>
+    </Card>
+    <Card>
+      <Name>Justice</Name>
+      <Effect>Balance - Reflect damage back at attacker.</Effect>
+      <Meta>Next attack to you or ally reflected. Flip if DC check passed</Meta>
+    </Card>
+    <Card>
+      <Name>The Hanged Man</Name>
+      <Effect>Sacrifice - Lose energy to grant great power to another.</Effect>
+      <Meta>Give 1d8+AM HP to an ally. Flip card</Meta>
+    </Card>
+    <Card>
+      <Name>Death</Name>
+      <Effect>Transformation - End something to begin anew.</Effect>
+      <Meta>End status effect on self, ally, or enemy. Flip if ally healed</Meta>
+    </Card>
+    <Card>
+      <Name>Temperance</Name>
+      <Effect>Alchemical Harmony - Blend elements for balance and healing.</Effect>
+      <Meta>Make potion from surroundings. 10 turns. Flip if disturbed</Meta>
+    </Card>
+    <Card>
+      <Name>The Devil</Name>
+      <Effect>Chains of Temptation - Bind enemies with desire or fear.</Effect>
+      <Meta>Inflict fear on 1d4 random enemies</Meta>
+    </Card>
+    <Card>
+      <Name>The Tower</Name>
+      <Effect>Cataclysm - Sudden destructive blast, reshaping battlefield.</Effect>
+      <Meta>1d12+AM damage. Dex 15 save for half. Hole 10 ft wide. Flip card</Meta>
+    </Card>
+    <Card>
+      <Name>The Star</Name>
+      <Effect>Guiding Light - Renew hope, restore mana/energy, long-term buff.</Effect>
+      <Meta>Restore 1 spell slot per ally. Flip if damaged before next turn</Meta>
+    </Card>
+    <Card>
+      <Name>The Moon</Name>
+      <Effect>Dreamscape - Create illusions, manipulate perception.</Effect>
+      <Meta>Enemy hallucinations 3 turns. Flip if they hit ally</Meta>
+    </Card>
+    <Card>
+      <Name>The Sun</Name>
+      <Effect>Radiant Blessing - Empower allies, heal, and dispel darkness.</Effect>
+      <Meta>Light 10 ft radius. Heal 1 HP start/end turn. Flip if 5 beings enter radius</Meta>
+    </Card>
+    <Card>
+      <Name>Judgement</Name>
+      <Effect>Final Call - Revive allies, restore willpower.</Effect>
+      <Meta>Revive one ally</Meta>
+    </Card>
+    <Card>
+      <Name>The World</Name>
+      <Effect>Completion - Achieve ultimate success: fulfill quest/objective instantly.</Effect>
+      <Meta>Redraw hand, spend 1 new card</Meta>
+    </Card>
+  </Cards>
+
+  <!-- Minor Arcana: Cups (add others similarly) -->
+  <Cards type="Cups">
+    <Card>
+      <Name>Ace of Cups</Name>
+      <Effect>Spring of Vitality - A sudden surge of healing.</Effect>
+      <Meta>Heal 1d4 + AM to one ally</Meta>
+    </Card>
+    <Card>
+      <Name>Two of Cups</Name>
+      <Effect>Shared Harmony - Heal two allies simultaneously.</Effect>
+      <Meta>Heal 1d4 + AM to two allies</Meta>
+    </Card>
+  </Cards>
+
+  <!-- Summons -->
+  <Summons>
+    <Summon>
+      <Name>Page of Cups</Name>
+      <Stats>20HP - 10AC - 30ft</Stats>
+      <Effect>Heals 1d4 + AM per turn to one ally. Can cure minor conditions</Effect>
+    </Summon>
+    <Summon>
+      <Name>Knight of Cups</Name>
+      <Stats>35HP - 13AC - 50ft</Stats>
+      <Effect>Mounted spirit heals allies in 10 ft 1 HP/turn. Once per summon: restore 1d6 + AM to one ally</Effect>
+    </Summon>
+  </Summons>
+</Class>
