@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<elements>
+  <!-- Tarot Weaver: a tarot-inspired class for Aurora Builder (D&D 5e) -->
+  <info>
+    <name>Tarot Weaver (Homebrew)</name>
+    <update version="1.0"/>
+    <author>Homebrew by User + ChatGPT</author>
+    <description>A tarot-deck based class implementing Major/Minor Arcana powers and Courtly Summons. AM = Ability Modifier (Wisdom or Charisma, chosen at level 1).</description>
+  </info>
+
+  <!-- CLASS DEFINITION -->
+  <element name="Tarot Weaver" type="Class" id="ID_TAROT_WEAVER_CLASS">
+    <description>
+      <![CDATA[
+      <h3>Tarot Weaver</h3>
+      <p><strong>Hit Die:</strong> d8</p>
+      <p><strong>Primary Ability (AM):</strong> Wisdom or Charisma (choose when you take your first level in this class). Any feature that references <em>AM</em> uses the chosen ability's modifier.</p>
+      <p><strong>Saving Throws:</strong> Wisdom, Charisma</p>
+      <p><strong>Armor:</strong> Light armor</p>
+      <p><strong>Weapons:</strong> Simple weapons</p>
+      <p><strong>Tools:</strong> Playing card set (tarot deck)</p>
+      <p><strong>Skills:</strong> Choose two from Arcana, Deception, Insight, Investigation, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth.</p>
+      <p><strong>Equipment:</strong> A tarot deck (holy symbol / arcane focus), leather armor, a simple weapon, an explorer’s pack.</p>
+
+      <h4>Deck of Fates (Core Rules)</h4>
+      <ul>
+        <li><strong>Upright / Inverse:</strong> Most Major Arcana have Upright and Inverse effects. The GM may call for a flip (upright or inverse) when a card is drawn, or you can use advantage/disadvantage or a d2 roll. If an entry says “flip the card,” discard it and draw a replacement at the end of your turn.</li>
+        <li><strong>Drawing &amp; Hand:</strong> At the start of each combat, draw a hand of 3 + your proficiency bonus cards from your deck. You may play one card on your turn as an Action unless the card states otherwise. Discard cards you play. When the deck empties, reshuffle the discard to form a new deck.</li>
+        <li><strong>Rest:</strong> You regain your full deck and hand after a long rest. Short rests let you reshuffle up to 3 discarded cards back into the deck.</li>
+        <li><strong>Concentration:</strong> If a card effect would reasonably require sustained focus, treat it as though it requires Concentration (like a spell); you lose it if you lose concentration.</li>
+      </ul>
+
+      <h4>Leveling Notes</h4>
+      <ul>
+        <li>Some cards scale by level (e.g., The High Priestess lasts +1 extra turn each 5 levels). Follow the card text below.</li>
+        <li>Summons are available starting at level 5 (Pages), level 9 (Knights), level 13 (Queens), and level 17 (Kings).</li>
+      </ul>
+      ]]>
+    </description>
+    <set name="sourceUrl">homebrew</set>
+    <set name="hitdie">d8</set>
+    <set name="autolevel">true</set>
+    <rules>
+      <stat name="class:Tarot Weaver" value="1"/>
+      <grant type="Class Feature" id="ID_TAROT_WEAVER_AM_CHOICE" />
+      <grant type="Class Feature" id="ID_TAROT_WEAVER_DECK_RULES" />
+      <grant type="Class Feature" id="ID_TAROT_WEAVER_MAJOR_ARCANA" />
+      <grant type="Class Feature" id="ID_TAROT_WEAVER_MINOR_CUPS" />
+      <grant type="Class Feature" id="ID_TAROT_WEAVER_MINOR_PENTACLES" />
+      <grant type="Class Feature" id="ID_TAROT_WEAVER_MINOR_SWORDS" />
+      <grant type="Class Feature" id="ID_TAROT_WEAVER_MINOR_WANDS" />
+      <grant type="Class Feature" id="ID_TAROT_WEAVER_SUMMONS_PAGES" level="5"/>
+      <grant type="Class Feature" id="ID_TAROT_WEAVER_SUMMONS_KNIGHTS" level="9"/>
+      <grant type="Class Feature" id="ID_TAROT_WEAVER_SUMMONS_QUEENS" level="13"/>
+      <grant type="Class Feature" id="ID_TAROT_WEAVER_SUMMONS_KINGS" level="17"/>
+      <proficiency name="Light Armor"/>
+      <proficiency name="Simple Weapons"/>
+      <proficiency name="Tool" value="Playing Card Set"/>
+      <proficiency name="Saving Throw" value="Wisdom"/>
+      <proficiency name="Saving Throw" value="Charisma"/>
+      <select type="Proficiency" name="Tarot Weaver Skills" number="2">
+        <item>Arcana</item><item>Deception</item><item>Insight</item><item>Investigation</item><item>Perception</item><item>Performance</item><item>Persuasion</item><item>Religion</item><item>Sleight of Hand</item><item>Stealth</item>
+      </select>
+    </rules>
+  </element>
+
+  <!-- AM Choice helper -->
+  <element name="Ability Focus (AM)" type="Class Feature" id="ID_TAROT_WEAVER_AM_CHOICE">
+    <description>
+      <![CDATA[
+      Choose either Wisdom or Charisma to be your <strong>Ability Modifier (AM)</strong> for Tarot Weaver features. You make any DCs that require AM as <em>8 + proficiency bonus + AM</em>, and damage or healing that uses AM adds your chosen ability's modifier.
+      ]]>
+    </description>
+  </element>
+
+  <!-- Deck rules surfaced as a feature for sheet visibility -->
+  <element name="Deck of Fates" type="Class Feature" id="ID_TAROT_WEAVER_DECK_RULES">
+    <description>
+      <![CDATA[
+      You fight with a deck of Major &amp; Minor Arcana. At the start of each combat, draw a hand of <strong>3 + proficiency bonus</strong>. Play one card per turn as an Action unless noted. Discard after use. If directed to <em>flip the card</em>, discard it and immediately draw a replacement at the end of your turn. Reshuffle when the deck empties.
+      ]]>
+    </description>
+  </element>
+
+  <!-- Major Arcana (Upright & Inverse) -->
+  <element name="Major Arcana" type="Class Feature" id="ID_TAROT_WEAVER_MAJOR_ARCANA">
+    <description>
+      <![CDATA[
+      <h4>Major Arcana — Upright</h4>
+      <ul>
+        <li><strong>The Fool — Leap of Faith:</strong> Teleport unpredictably within <em>5 × AM</em> feet; you are invulnerable until the start of your next turn.</li>
+        <li><strong>The Magician — Channel Arcana:</strong> Amplify the effect of your next spell (damage or healing) with AM. Then flip this card.</li>
+        <li><strong>The High Priestess — Veil of Mystery:</strong> Illusions hide you for 1 turn (add +1 turn at levels 5,10,15,20). If discovered, flip the card.</li>
+        <li><strong>The Empress — Bountiful Growth:</strong> Heal allies for <em>1d8 + AM</em>.</li>
+        <li><strong>The Emperor — Authority’s Command:</strong> Command a being. If it fails a DC <em>10 + your Intimidation modifier</em> check, it obeys.</li>
+        <li><strong>The Hierophant — Sacred Rite:</strong> Grant Inspiration to an ally.</li>
+        <li><strong>The Lovers — Sacred Bond:</strong> Link two beings; they share buffs and healing. Damage/effects to one apply to the other.</li>
+        <li><strong>The Chariot — Victory’s Charge:</strong> Dash 15 ft. On hit deal <em>1d8 + AM</em> bludgeoning. If the target succeeds a DC <em>10 + AM</em> check, flip the card.</li>
+        <li><strong>Strength — Lionheart:</strong> For 3 turns, your unarmed strikes deal <em>1d10 + AM</em>. While active you may discard one additional card each round to make an extra unarmed attack (max 2 attacks/round). No other Major Arcana can be active. After the duration, flip this card.</li>
+        <li><strong>The Hermit — Lamp of Wisdom:</strong> Reveal secrets or enemies within 15 ft (through objects). Enemies make a Stealth save DC <em>10 + your Investigation modifier</em>. If nothing is found, flip.</li>
+        <li><strong>Wheel of Fortune — Turn the Wheel:</strong> Create rough terrain beneath <em>1d4</em> enemies (GM adjudicates positions).</li>
+        <li><strong>Justice — Balance:</strong> The next attack against you or an ally is reflected. If the attacker succeeds their own attack DC, flip.</li>
+        <li><strong>The Hanged Man — Sacrifice:</strong> Give <em>1d8 + AM</em> HP to an ally; flip.</li>
+        <li><strong>Death — Transformation:</strong> End any status effect on a target (ally or enemy). If you heal an ally’s status, flip.</li>
+        <li><strong>Temperance — Alchemical Harmony:</strong> Begin crafting a random potion from nearby elements; takes 10 turns. If disturbed, flip.</li>
+        <li><strong>The Devil — Chains of Temptation:</strong> Inflict fear on <em>1d4</em> random enemies.</li>
+        <li><strong>The Tower — Cataclysm:</strong> Fire a beam; on hit deal <em>1d12 + AM</em> (Dex save 15 half). At impact, a 10‑ft‑wide hole opens. Flip.</li>
+        <li><strong>The Star — Guiding Light:</strong> Restore 1 spell slot to each ally. Casting takes one turn; if damaged before your next turn, flip.</li>
+        <li><strong>The Moon — Dreamscape:</strong> One enemy suffers hallucinations for 3 turns. If they hit an ally during this, flip.</li>
+        <li><strong>The Sun — Radiant Blessing:</strong> A 10‑ft lighted radius heals 1 HP to creatures at the start and end of their turns. If 5 beings enter at once, flip.</li>
+        <li><strong>Judgement — Final Call:</strong> Revive an ally.</li>
+        <li><strong>The World — Completion:</strong> Redraw your hand and immediately spend one new card.</li>
+      </ul>
+
+      <h4>Major Arcana — Inverse</h4>
+      <ul>
+        <li><strong>The Fool — Misstep:</strong> Teleport to a random enemy.</li>
+        <li><strong>The Magician — Backlash:</strong> Take <em>1d6</em> damage if an enemy ends within 5 ft of you.</li>
+        <li><strong>The High Priestess — False Counsel:</strong> You fall (prone).</li>
+        <li><strong>The Empress — Withering Touch:</strong> Curse a creature; over 5 turns they take <em>AM</em> damage each turn.</li>
+        <li><strong>The Emperor — Tyrant’s Wrath:</strong> Confuse a being within 10 ft (roll d4: on 1 you choose the target; on 2–4 the GM chooses).</li>
+        <li><strong>The Hierophant — Dogmatic Shackles:</strong> Hold a being for 3 turns (DC 15). On a failed attempt, you are held on your next turn.</li>
+        <li><strong>The Lovers — Severed Ties:</strong> Make an enemy turn on allies (DC <em>10 + AM</em>).</li>
+        <li><strong>The Chariot — Crash:</strong> Dash 15 ft; on hit deal <em>1d8 + AM</em> bludgeoning and you take half that damage.</li>
+        <li><strong>Strength — Inner Weakness:</strong> You become despondent; your next attack has disadvantage.</li>
+        <li><strong>The Hermit — Isolation:</strong> You are blinded for 1 turn.</li>
+        <li><strong>Wheel of Fortune — Downfall:</strong> Rough terrain in a 10‑ft radius beneath you.</li>
+        <li><strong>Justice — Corruption:</strong> The next attack from a chosen ally has disadvantage.</li>
+        <li><strong>The Hanged Man — Stasis:</strong> You can’t move on your next turn.</li>
+        <li><strong>Death — Stagnation:</strong> The next attack (ally or enemy) instead heals the target.</li>
+        <li><strong>Temperance — Discord:</strong> Your potion explodes in a 10‑ft radius for <em>1d4 + AM</em> damage; no save.</li>
+        <li><strong>The Devil — Liberation Frenzy:</strong> Allies can break free from any engagement.</li>
+        <li><strong>The Tower — Crumbled Ruins:</strong> The hole grows over 2 turns; after, it’s extremely hard to climb out.</li>
+        <li><strong>The Star — False Hope:</strong> Allies with open spell slots gain 1 level of exhaustion.</li>
+        <li><strong>The Moon — Nightmare:</strong> The enemy’s hallucinations spread to a hit ally for 1 turn.</li>
+        <li><strong>The Sun — Scorching Blaze:</strong> The circle burns for <em>1d4</em> damage each turn for 3 turns.</li>
+        <li><strong>Judgement — Condemnation:</strong> An enemy gives up.</li>
+        <li><strong>The World — Collapse:</strong> Redraw your <em>deck</em>.</li>
+      </ul>
+      ]]>
+    </description>
+  </element>
+
+  <!-- Minor Arcana: Cups -->
+  <element name="Minor Arcana — Cups" type="Class Feature" id="ID_TAROT_WEAVER_MINOR_CUPS">
+    <description>
+      <![CDATA[
+      <h4>Cups (Healing &amp; Support)</h4>
+      <ul>
+        <li><strong>Ace:</strong> Heal <em>1d4 + AM</em> to one ally.</li>
+        <li><strong>Two:</strong> Heal <em>1d4 + AM</em> to two allies.</li>
+        <li><strong>Three:</strong> Allies in 10 ft heal <em>1d4</em>; those allies gain advantage on their next saving throw.</li>
+        <li><strong>Four:</strong> Heal yourself <em>1d6</em> with meditative focus. If disturbed, no effect.</li>
+        <li><strong>Five:</strong> Heal <em>1d6 + AM</em> to an ally who took damage this turn.</li>
+        <li><strong>Six:</strong> Heal <em>1d4 + AM</em> to up to three allies.</li>
+        <li><strong>Seven:</strong> Choose 1–3 allies: each heals <em>1d4</em> or gains <em>1d6</em> temporary HP.</li>
+        <li><strong>Eight:</strong> Heal <em>1d8 + AM</em> to one ally.</li>
+        <li><strong>Nine:</strong> Heal <em>1d8 + AM</em> and grant +1 to their next attack roll or saving throw.</li>
+        <li><strong>Ten:</strong> All allies heal <em>1d6 + AM</em>; remove one minor status effect.</li>
+      </ul>
+      ]]>
+    </description>
+  </element>
+
+  <!-- Minor Arcana: Pentacles -->
+  <element name="Minor Arcana — Pentacles" type="Class Feature" id="ID_TAROT_WEAVER_MINOR_PENTACLES">
+    <description>
+      <![CDATA[
+      <h4>Pentacles (Protection)</h4>
+      <ul>
+        <li><strong>Ace:</strong> Grant <em>1d4 + AM</em> temporary HP to one ally.</li>
+        <li><strong>Two:</strong> Grant <em>1d4 + AM</em> temporary HP to two allies.</li>
+        <li><strong>Three:</strong> All allies within 10 ft gain <em>1d4 + AM</em> temporary HP.</li>
+        <li><strong>Four:</strong> You gain +1 AC for 3 turns.</li>
+        <li><strong>Five:</strong> Ally below half HP gains <em>1d6 + AM</em> temporary HP.</li>
+        <li><strong>Six:</strong> Distribute <em>1d4 + AM</em> temporary HP among up to three allies.</li>
+        <li><strong>Seven:</strong> Until your next turn, the first attack against an ally is reduced by <em>1d6 + AM</em>.</li>
+        <li><strong>Eight:</strong> One ally gains <em>1d8 + AM</em> temporary HP.</li>
+        <li><strong>Nine:</strong> You gain <em>1d10 + AM</em> temporary HP.</li>
+        <li><strong>Ten:</strong> All allies gain <em>1d6 + AM</em> temporary HP and advantage on saving throws for 1 turn.</li>
+      </ul>
+      ]]>
+    </description>
+  </element>
+
+  <!-- Minor Arcana: Swords -->
+  <element name="Minor Arcana — Swords" type="Class Feature" id="ID_TAROT_WEAVER_MINOR_SWORDS">
+    <description>
+      <![CDATA[
+      <h4>Swords (Martial Techniques)</h4>
+      <ul>
+        <li><strong>Ace:</strong> Deal <em>1d6 + AM</em> slashing to one enemy.</li>
+        <li><strong>Two (Parry &amp; Riposte):</strong> If hit, deal <em>1d6 + AM</em> to the attacker (they make a DC 10 save to halve).</li>
+        <li><strong>Three:</strong> Deal <em>1d8 + AM</em> piercing to one enemy.</li>
+        <li><strong>Four:</strong> Deal <em>1d4 + AM</em> and gain +1 temporary HP.</li>
+        <li><strong>Five (Flurry):</strong> Deal <em>1d4 + AM</em> to up to three enemies within 10 ft.</li>
+        <li><strong>Six (Cleaving Strike):</strong> Dash 10 ft; deal <em>1d6 + AM</em> to all in your path.</li>
+        <li><strong>Seven (Sneak Attack):</strong> Deal <em>1d8 + AM</em> if target fails a DC 10 Stealth save.</li>
+        <li><strong>Eight (Precision):</strong> Deal <em>1d10 + AM</em>. On a natural 20, roll again and double the effect.</li>
+        <li><strong>Nine (Desperate Lunge):</strong> Deal <em>1d12 + AM</em>; you take <em>1d4</em> recoil damage.</li>
+        <li><strong>Ten (Devastating Strike):</strong> Deal <em>2d8 + AM</em>. If this reduces a creature to 0 HP, you gain 1 extra turn.</li>
+      </ul>
+      ]]>
+    </description>
+  </element>
+
+  <!-- Minor Arcana: Wands -->
+  <element name="Minor Arcana — Wands" type="Class Feature" id="ID_TAROT_WEAVER_MINOR_WANDS">
+    <description>
+      <![CDATA[
+      <h4>Wands (Arcane Assaults)</h4>
+      <ul>
+        <li><strong>Ace (Spark):</strong> Deal <em>1d6 + AM</em> fire or lightning.</li>
+        <li><strong>Two (Focused Bolt):</strong> Deal <em>1d6 + AM</em>; on failed DC 10 save push the target 5 ft.</li>
+        <li><strong>Three (Expanding Blast):</strong> Deal <em>1d4 + AM</em> to up to three enemies within 10 ft.</li>
+        <li><strong>Four (Stabilizing Flame):</strong> Deal <em>1d6 + AM</em>; an ally gains +1 AC for 1 turn.</li>
+        <li><strong>Five (Wildfire):</strong> Deal <em>1d6 + AM</em> to <em>1d4</em> random enemies.</li>
+        <li><strong>Six (Radiant Strike):</strong> Deal <em>1d8 + AM</em>; target makes DC 10 save or is blinded 1 turn.</li>
+        <li><strong>Seven (Elemental Surge):</strong> Choose two elements; deal <em>1d6 + AM</em> of each to one enemy.</li>
+        <li><strong>Eight (Rapid Cast):</strong> Cast two minor spells this turn, each for <em>1d6 + AM</em>.</li>
+        <li><strong>Nine (Arcane Overload):</strong> Deal <em>1d10 + AM</em>; on a failed DC 12 save, you take <em>1d4</em> damage.</li>
+        <li><strong>Ten (Meteoric Impact):</strong> Deal <em>2d8 + AM</em> to all enemies in a 10‑ft radius.</li>
+      </ul>
+      ]]>
+    </description>
+  </element>
+
+  <!-- Summons: Pages -->
+  <element name="Courtly Summons — Pages" type="Class Feature" id="ID_TAROT_WEAVER_SUMMONS_PAGES">
+    <description>
+      <![CDATA[
+      <h4>Summons — Pages (level 5+)</h4>
+      <ul>
+        <li><strong>Page of Cups:</strong> 20 HP, AC 10, speed 30 ft. Heals an ally <em>1d4 + AM</em> each turn; can cure minor conditions (poison, fatigue).</li>
+        <li><strong>Page of Pentacles:</strong> 20 HP, AC 10, speed 30 ft. Grants <em>1d4 + AM</em> temporary HP to an ally each turn.</li>
+        <li><strong>Page of Swords:</strong> 20 HP, AC 10, speed 30 ft. Spectral blade attack each turn: <em>1d6 + AM</em>.</li>
+        <li><strong>Page of Wands:</strong> 20 HP, AC 10, speed 30 ft. Elemental bolt each turn: <em>1d6 + AM</em> (choose element).</li>
+      </ul>
+      <p><em>Summoning:</em> As an action, conjure one Page that obeys your commands (initiative immediately after yours). The summon lasts until reduced to 0 HP or dismissed (no concentration required unless your GM requires it for balance).</p>
+      ]]>
+    </description>
+  </element>
+
+  <!-- Summons: Knights -->
+  <element name="Courtly Summons — Knights" type="Class Feature" id="ID_TAROT_WEAVER_SUMMONS_KNIGHTS">
+    <description>
+      <![CDATA[
+      <h4>Summons — Knights (level 9+)</h4>
+      <ul>
+        <li><strong>Knight of Cups:</strong> 35 HP, AC 13, speed 50 ft. Healing waves: allies within 10 ft heal 1 HP at the start of their turns. Once per summon, restore <em>1d6 + AM</em> to a chosen ally.</li>
+        <li><strong>Knight of Pentacles:</strong> 35 HP, AC 13, speed 50 ft. Intercept: once per turn, force an enemy to reroll an attack against an ally.</li>
+        <li><strong>Knight of Swords:</strong> 35 HP, AC 13, speed 50 ft. Each turn dash up to 20 ft and strike for <em>1d8 + AM</em>; if the enemy is stunned, make an extra attack.</li>
+        <li><strong>Knight of Wands:</strong> 35 HP, AC 13, speed 50 ft. Elemental blast <em>1d8 + AM</em> with 5‑ft knockback on hit.</li>
+      </ul>
+      ]]>
+    </description>
+  </element>
+
+  <!-- Summons: Queens -->
+  <element name="Courtly Summons — Queens" type="Class Feature" id="ID_TAROT_WEAVER_SUMMONS_QUEENS">
+    <description>
+      <![CDATA[
+      <h4>Summons — Queens (level 13+)</h4>
+      <ul>
+        <li><strong>Queen of Cups:</strong> 60 HP, AC 16, speed 20 ft. Healing aura 10 ft: allies heal <em>1d4 + AM</em> each turn. Once per summon: cleanse one major status (charmed, paralyzed, etc.).</li>
+        <li><strong>Queen of Pentacles:</strong> 60 HP, AC 16, speed 20 ft. Aura of safety 10 ft: allies gain +1 AC. Once per summon: grant resistance to one damage type for 3 turns.</li>
+        <li><strong>Queen of Swords:</strong> 60 HP, AC 16, speed 20 ft. Precise strike each turn <em>1d10 + AM</em>; may disarm or impose disadvantage (DC <em>10 + AM</em>).</li>
+        <li><strong>Queen of Wands:</strong> 60 HP, AC 16, speed 20 ft. Each turn cast radiant flames/illusions for <em>1d10 + AM</em>. Once per summon: grant an ally advantage on next attack or save.</li>
+      </ul>
+      ]]>
+    </description>
+  </element>
+
+  <!-- Summons: Kings -->
+  <element name="Courtly Summons — Kings" type="Class Feature" id="ID_TAROT_WEAVER_SUMMONS_KINGS">
+    <description>
+      <![CDATA[
+      <h4>Summons — Kings (level 17+)</h4>
+      <ul>
+        <li><strong>King of Cups:</strong> 80 HP, AC 18, speed 15 ft. Allies heal <em>1d6 + AM</em> per turn; death saves within 30 ft have advantage. Once per summon: revive a downed ally to 1 HP.</li>
+        <li><strong>King of Pentacles:</strong> 80 HP, AC 18, speed 15 ft. Allies in 20 ft gain <em>1d6 + AM</em> temp HP per turn. Once per summon: create a 10×10×1‑ft barrier wall for 3 turns.</li>
+        <li><strong>King of Swords:</strong> 80 HP, AC 18, speed 15 ft. Two attacks per turn (<em>1d8 + AM</em> each). Once per summon: Whirlwind Slash — all enemies in 10 ft take <em>1d6 + AM</em>.</li>
+        <li><strong>King of Wands:</strong> 80 HP, AC 18, speed 15 ft. Each turn cast a bolt <em>2d6 + AM</em>. Once per summon: 10‑ft radius AoE for <em>2d8 + AM</em>.</li>
+      </ul>
+      ]]>
+    </description>
+  </element>
+
+</elements>
