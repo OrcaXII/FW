@@ -1,0 +1,15 @@
+{
+  "format": "index-1.0",
+  "sources": [
+    {
+      "name": "Tarot Weaver",
+      "abbreviation": "TW",
+      "version": "1.0",
+      "author": "Homebrew",
+      "url": "Tarot_Weaver_AuroraBuilder.xml",
+      "files": [
+        "Tarot_Weaver_AuroraBuilder.xml"
+      ]
+    }
+  ]
+}
