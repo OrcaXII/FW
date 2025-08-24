@@ -6,9 +6,9 @@
       "abbreviation": "TW",
       "version": "1.0",
       "author": "Homebrew",
-      "url": "https://raw.githubusercontent.com/YourUserName/YourRepo/main/Tarot_Weaver_AuroraBuilder.xml",
+      "url": "https://raw.githubusercontent.com/OrcaXII/FW/main/Tarot_Weaver_AuroraBuilder.xml",
       "files": [
-        "https://raw.githubusercontent.com/YourUserName/YourRepo/main/Tarot_Weaver_AuroraBuilder.xml"
+        "https://raw.githubusercontent.com/OrcaXII/FW/main/Tarot_Weaver_AuroraBuilder.xml"
       ]
     }
   ]
